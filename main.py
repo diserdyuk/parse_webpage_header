@@ -7,9 +7,18 @@ def get_html(url):    # фунция отсылает запрос на серв
     return r.text
 
 
-def main():
+def get_data(html):    # парсинг страницы
+    soup = BeautifulSoup(html, 'lxml')    # преобразование хтмл в дерево объектов питона 
+    h1 = soup.find('div', id='home-welcome').find('header').find('h1').text    # поиск в дереве(хтмл) по ключевым тегам
+    return h1
+
+
+
+
+
+def main():    # распечатал хтмл код страницы
     url = 'https://wordpress.org/'
-    print(get_html(url))
+    print(get_data(get_html(url)))
 
 
 
