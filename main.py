@@ -2,8 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_html(url):    # фунция отсылает запрос на сервер и получ. ответ
-    r = requests.get(url)   # получаю rеsponsе (ответ)
+def get_html(url1):    # фунция отсылает запрос на сервер и получ. ответ
+    r = requests.get(url1)   # получаю rеsponsе (ответ)
     return r.text
 
 
@@ -16,7 +16,7 @@ def get_data(html):    # парсинг страницы
 
 
 
-def main():    # распечатал хтмл код страницы
+def main():    # собирает результат работы др.функций
     url = 'https://wordpress.org/'
     print(get_data(get_html(url)))
 
